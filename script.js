@@ -13,24 +13,26 @@ for (var i = 0;i < word.length; i++){
 var remainingLetters = word.length;
 var stepLimit = 12;
 while (remainingLetters > 0 && stepLimit > 0){
-
     alert(answerarray.join(" "));
 var guess = prompt("Угадайте букву или нажмите отмена");
 if (guess === null){
     break;
 } else if (guess.length !== 1){
     alert("Пожалуйста введите только одну букву.");
-} else {
-    stepLimit--;
+} 
+else {
+    
     guess = guess.toLowerCase();
 
     for (var j = 0; j < word.length; j++) {
-        if (word[j] === guess){
+        if (word[j] === guess && answerarray[j] == "_") {
             answerarray[j] = guess;
             remainingLetters--;
+            stepLimit--;
         }
+      
     }
-
+  
 }
 }
 alert(answerarray.join(" "));

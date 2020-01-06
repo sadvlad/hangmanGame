@@ -1,9 +1,4 @@
-var words = [
-    "программа",
-    "макака",
-    "прекрасный",
-    "оладушек"
-];
+
 var word = words[Math.floor(Math.random() * words.length)];
 
 var answerarray = [];
@@ -11,7 +6,7 @@ for (var i = 0;i < word.length; i++){
     answerarray[i] = "_";
 }
 var remainingLetters = word.length;
-var stepLimit = 12;
+var stepLimit = 5;
 while (remainingLetters > 0 && stepLimit > 0){
     alert(answerarray.join(" "));
 var guess = prompt("Угадайте букву или нажмите отмена");
@@ -25,7 +20,7 @@ else {
     guess = guess.toLowerCase();
 
     for (var j = 0; j < word.length; j++) {
-        if (word[j] === guess && answerarray[j] == "_") {
+        if (word[j] === guess && answerarray[j] === "_") {
             answerarray[j] = guess;
             remainingLetters--;
             stepLimit--;
